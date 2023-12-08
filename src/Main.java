@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 public class Main {
     private static final int delay = 50;
+
     private static Timer timer = new Timer(delay, new Timelistener(new CarWorld()));
 
 
