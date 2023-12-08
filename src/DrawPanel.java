@@ -10,12 +10,14 @@ import javax.swing.*;
 
 public class DrawPanel extends JPanel {
 
-    CarController carC = new CarController();
-    public ArrayList<Vehicle> getCars() {
-        return carC.getVehicles();
-    }
+    CarWorld carW;
 
-    ArrayList<BufferedImage> vehicleImageList = new ArrayList<>();
+
+    /*public ArrayList<Vehicle> getCars() {
+        return carC.getVehicles();
+    }*/
+
+    //ArrayList<BufferedImage> vehicleImageList = new ArrayList<>();
     ArrayList<Vehicle> vehicleList;
 
     public void sendToDraw(ArrayList<Vehicle> Lista){
@@ -27,7 +29,7 @@ public class DrawPanel extends JPanel {
         this.setDoubleBuffered(true);
         this.setPreferredSize(new Dimension(x, y));
         this.setBackground(Color.white);
-
+/*
         carC.vehicles.add(new Volvo240(2, 1, Color.blue, "Volvo240"));
         carC.vehicles.add(new Saab95(2, 100, Color.red, "Saab95"));
         carC.vehicles.add(new Scania(2, 50, Color.black, "Scania"));
@@ -40,7 +42,7 @@ public class DrawPanel extends JPanel {
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
-        }
+        }*/
     }
 
     @Override
@@ -50,10 +52,10 @@ public class DrawPanel extends JPanel {
 
         if (vehicleList != null){
             for (Vehicle vehicle : vehicleList) {
-                //if (volvoPoint.x == (int) Math.round(vehicle.getX())) {
                 int x = (int) Math.round(vehicle.getX());
                 int y = (int) Math.round(vehicle.getY());
-                g.drawImage(vehicleImageList.get(index),x,y + 100 * index, null);
+                g.drawImage(carW.getVehicleImageList().get(index),x,y + 100 * index, null);
+
                 index += 1;
             }
         }
