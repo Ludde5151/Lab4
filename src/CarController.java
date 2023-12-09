@@ -14,49 +14,12 @@ public class CarController {
 
     CarView frame;
     CarWorld carW;
+    public CarController(CarView frame, CarWorld carW){
+        this.frame = frame;
+        this.carW = carW;
+        initializeActionListener();
+    }
 
-
-   /* public static void main(String[] args) {
-        // Instance of this class
-        CarController cc = new CarController();
-
-        cc.vehicles.add(new Volvo240(4, 100, Color.blue, "Volvo240"));
-        cc.vehicles.add(new Saab95(2, 125, Color.red, "Saab95"));
-        cc.vehicles.add(new Scania(2, 50, Color.black, "Scania"));
-
-        // Start a new view and send a reference of self
-        cc.frame = new CarView("CarSim 1.0", cc);
-
-        // Start the timer
-        cc.timer.start();
-    }*/
-
-    /* Each step the TimerListener moves all the cars in the list and tells the
-     * view to update its images. Change this method to your needs.
-     * */
-   /* private class TimerListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            for (Vehicle vehicle : vehicles) {
-                vehicle.move();
-                int x = (int) Math.round(vehicle.getX());
-                int y = (int) Math.round(vehicle.getY());
-                frame.drawPanel.sendToDraw(vehicles);
-                if (vehicle.getX() > 700 || vehicle.getX() < 0) {
-                    vehicle.stopEngine();
-                    vehicle.turnleft();
-                    vehicle.turnleft();
-                    vehicle.startEngine();
-                }
-                if (vehicle.getX() > 700) {
-                    vehicle.setX(700);
-                } else if (vehicle.getX() < 0) {
-                    vehicle.setX(0);
-                }
-            }
-            // repaint() calls the paintComponent method of the panel
-            frame.drawPanel.repaint();
-        }
-    }*/
 
     // Calls the gas method for each car once
     void gas(int amount) {
@@ -194,6 +157,21 @@ public class CarController {
             @Override                                               // actionbutton turbo off
             public void actionPerformed(ActionEvent e) {
                 startengine();
+            }
+        });
+        frame.addCarbutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carW.addVehicle(new Volvo240(4,100,Color.BLUE, "Volvo240"));
+            }
+        });
+        frame.removeCarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ArrayList<Vehicle> vehicles = carW.getVehicles();
+                if (!vehicles.isEmpty()) {
+                    vehicles.remove(vehicles.size() - 1);
+                }
             }
         });
     }

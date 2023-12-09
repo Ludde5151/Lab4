@@ -1,4 +1,3 @@
-
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -55,8 +54,8 @@ public class Biltransport extends Truck {
         }
     }
     public void setRampClose(){
-            rampOpen = false;
-        }
+        rampOpen = false;
+    }
 
     @Override
     public void turnleft(){

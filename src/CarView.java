@@ -18,10 +18,11 @@ import java.util.ArrayList;
 public class CarView extends JFrame{
     private static final int X = 800;
     private static final int Y = 800;
+    private  CarWorld carWorld;
 
 
     // The controller member
-    DrawPanel drawPanel = new DrawPanel(X, Y-240);
+    DrawPanel drawPanel;
     JPanel controlPanel = new JPanel();
     JPanel gasPanel = new JPanel();
     JPanel bodyPanel = new JPanel();                        //
@@ -39,12 +40,21 @@ public class CarView extends JFrame{
     JButton turboOffButton = new JButton("Turbo off");
     JButton liftBedButton = new JButton("Lift Bed");
     JButton lowerBedButton = new JButton("Lower Bed");
+    JButton addCarbutton = new JButton("add car");
+    JButton removeCarButton = new JButton("remove car");
+
 
     JButton startButton = new JButton("Start all cars");
     JButton stopButton = new JButton("Stop all cars");
 
-    public CarView(String framename){
+    public CarView(String framename, CarWorld carWorldInstance){
+        this.carWorld = carWorldInstance;
+        this.drawPanel = new DrawPanel(X, Y-240, carWorldInstance);
+        this.add(drawPanel);
         initComponents(framename);
+
+
+
     }
     private void initComponents(String title) {
 
@@ -100,6 +110,8 @@ public class CarView extends JFrame{
         controlPanel.add(turnRightButton, 7);       //Lägger till left/right i panelen
         controlPanel.add(startButton,8);
         controlPanel.add(stopButton,9);
+        controlPanel.add(addCarbutton, 10);
+        controlPanel.add(removeCarButton, 11);
         controlPanel.setPreferredSize(new Dimension((X/2)+4, 200));
         this.add(controlPanel);
         controlPanel.setBackground(Color.CYAN);
