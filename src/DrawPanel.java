@@ -13,11 +13,6 @@ public class DrawPanel extends JPanel {
     CarWorld carW;
 
 
-    /*public ArrayList<Vehicle> getCars() {
-        return carC.getVehicles();
-    }*/
-
-    //ArrayList<BufferedImage> vehicleImageList = new ArrayList<>();
     ArrayList<Vehicle> vehicleList;
 
     public void sendToDraw(ArrayList<Vehicle> Lista){
@@ -49,14 +44,21 @@ public class DrawPanel extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         int index = 0;
+        int index2 = 0;
 
         if (vehicleList != null){
             for (Vehicle vehicle : vehicleList) {
                 int x = (int) Math.round(vehicle.getX());
                 int y = (int) Math.round(vehicle.getY());
-                g.drawImage(carW.getVehicleImageList().get(index),x,y + 100 * index, null);
+                if ((y + 75 * index) > 500) {
+                    g.drawImage(carW.getVehicleImageList().get(index), x + 200, y + 75 * index2, null);
+                    index2 += 1;
+                } else {
+                    g.drawImage(carW.getVehicleImageList().get(index), x, y + 75 * index, null);
+                }
 
                 index += 1;
+
             }
         }
     }

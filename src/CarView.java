@@ -7,13 +7,7 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
-/**
- * This class represents the full view of the MVC pattern of your car simulator.
- * It initializes with being center on the screen and attaching it's controller in it's state.
- * It communicates with the Controller by calling methods of it when an action fires of in
- * each of it's components.
- * TODO: Write more actionListeners and wire the rest of the buttons
- **/
+
 
 public class CarView extends JFrame{
     private static final int X = 800;
@@ -42,6 +36,11 @@ public class CarView extends JFrame{
 
     JButton startButton = new JButton("Start all cars");
     JButton stopButton = new JButton("Stop all cars");
+
+    JButton addVehicleButton = new JButton("Add a vehicle");
+    JButton removeVehicleButton = new JButton("Removes a vehicle");
+
+
 
     public CarView(String framename){
         initComponents(framename);
@@ -100,6 +99,9 @@ public class CarView extends JFrame{
         controlPanel.add(turnRightButton, 7);       //Lägger till left/right i panelen
         controlPanel.add(startButton,8);
         controlPanel.add(stopButton,9);
+        controlPanel.add(addVehicleButton, 10);
+        controlPanel.add(removeVehicleButton,11);
+
         controlPanel.setPreferredSize(new Dimension((X/2)+4, 200));
         this.add(controlPanel);
         controlPanel.setBackground(Color.CYAN);

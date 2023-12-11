@@ -1,11 +1,8 @@
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.sql.Time;
 import java.util.ArrayList;
-
 import javax.imageio.ImageIO;
-import javax.swing.*;
+
 
 public class CarWorld {
     CarView frame;
@@ -37,7 +34,7 @@ public class CarWorld {
             vehicle.move();
             int x = (int) Math.round(vehicle.getX());
             int y = (int) Math.round(vehicle.getY());
-            frame.drawPanel.sendToDraw(vehicles);
+            //frame.drawPanel.sendToDraw(vehicles);
             if (vehicle.getX() > 700 || vehicle.getX() < 0) {
                 vehicle.stopEngine();
                 vehicle.turnleft();
@@ -50,8 +47,6 @@ public class CarWorld {
                 vehicle.setX(0);
             }
         }
-        // repaint() calls the paintComponent method of the panel
-        frame.drawPanel.repaint();
     }
 
 
