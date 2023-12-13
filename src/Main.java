@@ -19,10 +19,10 @@ public class Main {
         carW.addVehicle(new Saab95(2, 125, Color.red, "Saab95"));
         carW.addVehicle(new Scania(2, 50, Color.black, "Scania"));
 
-        cc.frame = frame;
-        cc.carW = carW;
-        carW.frame = frame;
-        frame.drawPanel.carW = carW;
+        cc.setCarView(frame);
+        cc.setCarWorld(carW);
+        carW.setCarView(frame);
+        frame.getDrawPanel().setCarWorld(carW);
 
         cc.initializeActionListener();
 

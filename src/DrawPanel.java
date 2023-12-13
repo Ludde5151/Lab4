@@ -10,10 +10,21 @@ import javax.swing.*;
 
 public class DrawPanel extends JPanel {
 
-    CarWorld carW;
+    private CarWorld carW;
 
 
-    ArrayList<Vehicle> vehicleList;
+    private ArrayList<Vehicle> vehicleList;
+
+    public DrawPanel getDrawPanel(){
+        return this;
+    }
+
+    public void setCarWorld(CarWorld carworld){
+        carW = carworld;
+    }
+    public CarWorld getCarWorld(){
+        return carW;
+    }
 
     public void sendToDraw(ArrayList<Vehicle> Lista){
         this.vehicleList = Lista;
@@ -24,27 +35,13 @@ public class DrawPanel extends JPanel {
         this.setDoubleBuffered(true);
         this.setPreferredSize(new Dimension(x, y));
         this.setBackground(Color.white);
-/*
-        carC.vehicles.add(new Volvo240(2, 1, Color.blue, "Volvo240"));
-        carC.vehicles.add(new Saab95(2, 100, Color.red, "Saab95"));
-        carC.vehicles.add(new Scania(2, 50, Color.black, "Scania"));
-
-        for (Vehicle vehicle : getCars()) {
-            try {
-                String modelName = vehicle.getModelName();
-                BufferedImage image = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/" + modelName + ".jpg"));
-                vehicleImageList.add(image);
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        }*/
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         int index = 0;
-        int index2 = 0;
+        int index2 = 0; // Index for when adding cars beyond the y-axle
 
         if (vehicleList != null){
             for (Vehicle vehicle : vehicleList) {

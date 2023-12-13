@@ -6,9 +6,22 @@ import java.util.ArrayList;
 
 public class CarController {
 
-    CarView frame;
-    CarWorld carW;
+    private CarView frame;
+    private CarWorld carW;
 
+
+    public void setCarView(CarView carview){
+        frame = carview;
+    }
+    public void setCarWorld(CarWorld carworld){
+        carW = carworld;
+    }
+    public CarWorld getCarWorld(){
+        return carW;
+    }
+    public CarView getCarView(){
+        return frame;
+    }
 
 
     // Calls the gas method for each car once

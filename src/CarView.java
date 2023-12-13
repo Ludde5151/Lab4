@@ -15,7 +15,7 @@ public class CarView extends JFrame{
 
 
     // The controller member
-    DrawPanel drawPanel = new DrawPanel(X, Y-240);
+    private DrawPanel drawPanel = new DrawPanel(X, Y-240);
     JPanel controlPanel = new JPanel();
     JPanel gasPanel = new JPanel();
     JPanel bodyPanel = new JPanel();                        //
@@ -41,9 +41,19 @@ public class CarView extends JFrame{
     JButton removeVehicleButton = new JButton("Removes a vehicle");
 
 
+    public void setDrawPanel(DrawPanel drawpanel){
+        drawPanel = drawpanel;
+    }
+    public DrawPanel getDrawPanel(){
+        return drawPanel;
+    }
 
     public CarView(String framename){
         initComponents(framename);
+    }
+
+    public CarView getCarView(){
+        return this;
     }
     private void initComponents(String title) {
 

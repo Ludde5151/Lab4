@@ -5,7 +5,7 @@ import javax.imageio.ImageIO;
 
 
 public class CarWorld {
-    CarView frame;
+    private CarView frame;
     private ArrayList<Vehicle> vehicles = new ArrayList<>();
     private ArrayList<BufferedImage> vehicleImageList = new ArrayList<>();
 
@@ -14,6 +14,12 @@ public class CarWorld {
     }
     public ArrayList<BufferedImage> getVehicleImageList() {return vehicleImageList;}
 
+    public void setCarView(CarView carview){
+        frame = carview;
+    }
+    public CarView getCarView(){
+        return frame;
+    }
 
 
     public void addVehicle(Vehicle vehicle){
