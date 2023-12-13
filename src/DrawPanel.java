@@ -38,7 +38,7 @@ public class DrawPanel extends JPanel {
     }
 
     @Override
-    protected void paintComponent(Graphics g) {
+    protected void paintComponent(Graphics g){
         super.paintComponent(g);
         int index = 0;
         int index2 = 0; // Index for when adding cars beyond the y-axle
@@ -61,5 +61,5 @@ public class DrawPanel extends JPanel {
     }
 }
 
-
+//
 
